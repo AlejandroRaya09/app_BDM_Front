@@ -9,7 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [],
@@ -21,8 +21,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatButtonModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatSidenavModule
-
+    MatSidenavModule,
+    MatDividerModule
   ],
   exports:[
     CommonModule,
@@ -31,7 +31,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDividerModule
   ]
 })
 export class MaterialModule { }

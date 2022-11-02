@@ -1,3 +1,8 @@
+mat-toolbar{
+    background: #004a9f;
+    color: wheat;
+}
+
 mat-sidenav{
     margin: 16px;
     width: 200px;
@@ -18,9 +23,47 @@ mat-sidenav{
     align-items: center;
     font-size: 2rem;
     color: lightgray;
+    border-radius: 10px;
     
 }
 
 mat-sidenav-container{
     height:calc(100vh - 65px);
 }
+
+.menu-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}   
+
+ mat-icon {
+    margin-right: 8px;
+}
+.name{
+    margin: 0;
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.desigantion{
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgray;
+}
+
+mat-divider{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
