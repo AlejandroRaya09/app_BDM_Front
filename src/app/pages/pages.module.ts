@@ -8,12 +8,14 @@ import { PagesComponent } from './pages.component';
 //MODULOS PROPIOS
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../DesignModule/material.module';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    PagesComponent
+    PagesComponent,
+    CategoriasComponent
   ],
   exports:[
     DashboardComponent,

@@ -1,1 +1,104 @@
-<p>register works!</p>
+<div class="body">
+
+    <div class="register"> 
+        <img src="../../../assets/img/register.png" style="width: 50%; margin-top: 10px;">
+        <form [formGroup]="registerForm" (submit)="Registrarse()">
+        <button mat-raised-button color="primary" type="submit">Registrarse</button>
+        <button mat-raised-button color="warn" type="button" (click)="regresar()">Cancelar</button>
+    </form>
+    </div>
+
+    <div class="register">
+        <h1>Datos de Inicio</h1>
+        <form autocomplete="off" [formGroup]="registerForm" >
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre de Usuario</mat-label>
+                <input matInput formControlName="Username">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Correo Electronico</mat-label>
+                <input matInput formControlName="Email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-select placeholder="Roll" formControlName="Roll">
+                    <mat-option>Opciones</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-select placeholder="Tipo de Perfil" formControlName="Perfil">
+                    <mat-option>Opciones</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+    </div>
+
+
+
+    <div class="register2">
+        <h1>Datos Personales</h1>
+        <form [formGroup]="registerForm">
+
+            <mat-form-field appearance="fill" style="width:45%; margin-right: 10px;">
+                <mat-label>Primer Nombre</mat-label>
+                <input matInput formControlName="primerNombre">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" style="width:45%;">
+                <mat-label>Segundo Nombre</mat-label>
+                <input matInput formControlName="segundoNombre">
+            </mat-form-field>
+            <mat-form-field appearance="fill" style="width:45%;  margin-right: 10px;">
+                <mat-label>Primer Apellido</mat-label>
+                <input matInput formControlName="primerApellido">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" style="width:45%;">
+                <mat-label>Segundo Apellido</mat-label>
+                <input matInput formControlName="segundoApellido">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-select placeholder="Genero" formControlName="Genero">
+                    <mat-option>Opciones</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+    </div>
+
+
+</div>
+
+
+<!--
+    <div class="body">
+    <div class="register">
+
+       
+
+
+
+
+
+            <div class="registerButton">
+              
+            </div>
+        </form>
+        <span class="form-text text-danger"><strong>*Campos requerdidos</strong></span>
+    </div>
+
+</div>
+-->

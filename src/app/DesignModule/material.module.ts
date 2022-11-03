@@ -10,6 +10,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [],
@@ -22,7 +28,10 @@ import {MatDividerModule} from '@angular/material/divider';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatCardModule,
   ],
   exports:[
     CommonModule,
@@ -32,7 +41,11 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatCardModule,
+
   ]
 })
 export class MaterialModule { }

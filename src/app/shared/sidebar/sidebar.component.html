@@ -1,13 +1,9 @@
-<mat-toolbar  class="mat-elevation-z8">
+<mat-toolbar class="mat-elevation-z8">
 
-    <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-  >
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-  </button>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+        <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
     eCommers-LMAD
 </mat-toolbar>
 
@@ -15,42 +11,57 @@
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
         <img class="avatar mat-elevatio-z8"
-        src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+            src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
         <h4 class="name">Jonh Smith</h4>
         <p class="designation">Software Engineer</p>
 
         <mat-divider></mat-divider>
+
 
         <button mat-button class="menu-button" routerLink="/">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
 
-        <button mat-button class="menu-button" > <!--routerLink="/home"-->
+        <button mat-button class="menu-button">
+            <!--routerLink="/home"-->
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button>
 
-        <button mat-button class="menu-button"> <!--routerLink="/home"-->
-            <mat-icon>shop</mat-icon>
-            <span>Tienda</span>
+        <button mat-button class="menu-button" [matMenuTriggerFor]="appMenu">
+            <mat-icon>shop_two</mat-icon>
+            <span>Catalogos</span>
         </button>
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button"> <!--routerLink="/help"-->
-          <mat-icon>exit</mat-icon>
-          <span>Logout</span>
+        <button mat-button class="menu-button">
+            <!--routerLink="/help"-->
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
         </button>
 
     </mat-sidenav>
-    
+
+    <!--ESPACIO DONDE SE MOSTRARA EL CONTENIDO-->
     <mat-sidenav-content>
         <div class="content mat-elevation-z8" style="background-color:gainsboro;">
-
             <router-outlet></router-outlet>
-            
         </div>
     </mat-sidenav-content>
-
 </mat-sidenav-container>
+
+
+
+
+
+<!--SUBMENUS DE CATALOGOS-->
+<mat-menu #appMenu="matMenu">
+
+    <button mat-menu-item routerLink="categorias">
+        <mat-icon>category</mat-icon>Categorias
+    </button>
+
+
+</mat-menu>
