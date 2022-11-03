@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 //MODULOS PROPIOS
 import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../DesignModule/material.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ]
 })
 export class PagesModule { }
