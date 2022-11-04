@@ -1,0 +1,17 @@
+
+.titulo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+mat-form-field{
+    width: 100%;
+    max-width: 300px;
+}
+
+
+mat-card{
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+}
