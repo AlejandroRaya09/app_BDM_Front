@@ -9,13 +9,15 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../DesignModule/material.module';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { ProductosComponent } from './productos/productos.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     PagesComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    ProductosComponent
   ],
   exports:[
     DashboardComponent,

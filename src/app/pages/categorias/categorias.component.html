@@ -1,10 +1,12 @@
 
-<div class="container text-center" >
-    <div class="row" >
+<div class="contenedor text-center">
+    <div class="row">
       <div class="col-6 col-md-4">
 
         <mat-card>
-            <mat-card-title class="titulo">Agregar Categoria</mat-card-title>
+            <mat-card-title class="titulo">
+              <mat-icon>category</mat-icon>
+              Agregar Categoria</mat-card-title>
             <br>
             <mat-card-content>
             <form [formGroup]="categoriaForm" autocomplete="off">
@@ -19,8 +21,9 @@
                     <input matInput formControlName="Descripcion">
                 </mat-form-field>
     
-                <div>
-                    <button mat-raised-button color="primary"> Agregar </button>
+                <div class="botones">
+                    <button mat-raised-button color="primary" 
+                    (click)="agregar_editarCatego();"> <mat-icon>add_circle</mat-icon> Agregar </button>
                 </div>
             </form>
             </mat-card-content>
@@ -34,14 +37,14 @@
 
       <div class="col-md-8">
         <mat-card>
-            <!--TABLA-->
+<!--TABLA DONDE SE MUESTRAN TODOS LAS CATEGORIAS-->
         </mat-card>
       </div>
 
     </div>
-  </div>
+</div>
 
 
 
 
-<!--TABLA DONDE SE MUESTRAN TODOS LAS CATEGORIAS-->
+

@@ -2,3 +2,39 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.titulo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:gray
+}
+
+mat-form-field{
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+}
+
+mat-card{
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor{
+    margin:25px;
+}
+
+.botones{
+    background: gainsboro;
+    border-radius: 10px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.spacer
+{
+  flex: 1 1 auto;
+}

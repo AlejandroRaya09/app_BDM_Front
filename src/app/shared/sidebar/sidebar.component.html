@@ -5,6 +5,13 @@
         <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
     </button>
     eCommers-LMAD
+    <mat-icon>shopping_cart</mat-icon>
+    <span class="spacer"></span>
+    <mat-icon style="color:red;">arrow_right_alt</mat-icon> 
+    <mat-icon 
+    matTooltip="Carrito de Compras"
+    style="color:red; margin-right: 25px; cursor: pointer;">shopping_cart_checkout</mat-icon>
+    
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -17,26 +24,47 @@
 
         <mat-divider></mat-divider>
 
-
         <button mat-button class="menu-button" routerLink="/">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
 
-        <button mat-button class="menu-button">
-            <!--routerLink="/home"-->
-            <mat-icon>person</mat-icon>
-            <span>Profile</span>
+        <button mat-button class="menu-button" routerLink="productos">
+            <mat-icon>format_list_bulleted_add</mat-icon>
+            <span>Producto</span>
         </button>
 
-        <button mat-button class="menu-button" [matMenuTriggerFor]="appMenu">
-            <mat-icon>shop_two</mat-icon>
-            <span>Catalogos</span>
+        <button mat-button class="menu-button" routerLink="categorias">
+            <mat-icon>new_label</mat-icon>
+            <span>Categoria</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="">
+            <mat-icon>playlist_add</mat-icon>
+            <span>Listas</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="">
+            <mat-icon>area_chart</mat-icon>
+            <span>Consultas</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="">
+            <mat-icon>add_card</mat-icon>
+            <span>Metodos Pago</span>
         </button>
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" >
+            <!--routerLink="/home"-->
+            <mat-icon>person</mat-icon>
+            <span>Perfil</span>
+        </button>
+        
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" matTooltip="Cerrar Sesion" >
             <!--routerLink="/help"-->
             <mat-icon>logout</mat-icon>
             <span>Logout</span>
@@ -52,16 +80,3 @@
     </mat-sidenav-content>
 </mat-sidenav-container>
 
-
-
-
-
-<!--SUBMENUS DE CATALOGOS-->
-<mat-menu #appMenu="matMenu">
-
-    <button mat-menu-item routerLink="categorias">
-        <mat-icon>category</mat-icon>Categorias
-    </button>
-
-
-</mat-menu>

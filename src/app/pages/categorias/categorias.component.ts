@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { CategoriaModel } from '../../Models/CategoriaModel';
 
 const ELEMENT_DATA: string[] = [];
 
@@ -25,5 +26,21 @@ export class CategoriasComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.listarCategorias();
+  }
+
+  agregar_editarCatego(){
+    const Categoria: CategoriaModel = {
+      NombreCatego: this.categoriaForm.value.Nombre,
+      DescripcionCatego: this.categoriaForm.value.Descripcion,
+      Id_Usuario: 1 //CAMBIAR
+    }
+    console.log(Categoria)
+    //LLAMADO API A INSERTAR CATEGORIA 
+  }
+
+  listarCategorias(){
+    //LLAMADO API PARA LISTAR EN TABLA
+  }
 }
