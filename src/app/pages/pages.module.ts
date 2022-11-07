@@ -10,6 +10,9 @@ import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../DesignModule/material.module';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ProductosComponent } from './productos/productos.component';
+import { ListasComponent } from './listas/listas.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { ProductosComponent } from './productos/productos.component';
     DashboardComponent,
     PagesComponent,
     CategoriasComponent,
-    ProductosComponent
+    ProductosComponent,
+    ListasComponent,
+    PerfilComponent,
+    MetodosPagoComponent
   ],
   exports:[
     DashboardComponent,
