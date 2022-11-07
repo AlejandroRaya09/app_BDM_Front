@@ -13,6 +13,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { ListasComponent } from './listas/listas.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
+import { VerProductoComponent } from './ver-producto/ver-producto.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
     ProductosComponent,
     ListasComponent,
     PerfilComponent,
-    MetodosPagoComponent
+    MetodosPagoComponent,
+    VerProductoComponent
   ],
   exports:[
     DashboardComponent,

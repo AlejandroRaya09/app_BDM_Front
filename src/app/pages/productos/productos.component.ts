@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TipoVenta } from 'src/app/Models/GenericosModel';
 import { ProductoModel } from 'src/app/Models/ProductoModel';
 
-interface tipo {tipo:string;}
+
 
 @Component({
   selector: 'app-productos',
@@ -12,7 +13,7 @@ interface tipo {tipo:string;}
 export class ProductosComponent implements OnInit {
 
   //LISTA DE TIPOS DE VENTA DE PRODUCTO
-  Tipo: tipo[] = [{tipo:'Vender'},{tipo:'Cotizar'}];
+  Tipo: TipoVenta[] = [{tipo:'Vender'},{tipo:'Cotizar'}];
 
   //FORMGROUP
   productoForm: FormGroup;

@@ -1,13 +1,83 @@
-<div class="contenedor text-center" >
+<div class="contenedor text-center">
     <div class="row">
         <div class="col-12">
 
             <mat-card>
                 <mat-card-title class="titulo">
                     <mat-icon>person</mat-icon>
-                    Datos de perfil</mat-card-title>
-                  <br>
+                    Datos de perfil
+                </mat-card-title>
+                <br>
                 <mat-card-content>
+
+                    <form [formGroup]="perfilForm" autocomplete="off" (submit)="EditarDatos()">
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Primer Nombre</mat-label>
+                            <input matInput formControlName="primerNombre">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Segundo Nombre</mat-label>
+                            <input matInput formControlName="segundoNombre">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Primer Apellido</mat-label>
+                            <input matInput formControlName="primerApellido">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Segundo Apellido</mat-label>
+                            <input matInput formControlName="segundoApellido">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-select placeholder="Genero" formControlName="Genero">
+                                <mat-option [value]="Genero.genero" *ngFor="let Genero of Genero">{{Genero.genero}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Correo Electronico</mat-label>
+                            <input matInput formControlName="Email">
+                        </mat-form-field>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nombre de Usuario</mat-label>
+                            <input matInput formControlName="Username">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password"
+                                autocomplete="off">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-select placeholder="Roll" formControlName="Roll">
+                                <mat-option [value]="Roll.roll" *ngFor="let Roll of Roll">{{Roll.roll}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-select placeholder="Tipo de Perfil" formControlName="Perfil">
+                                <mat-option [value]="TipoPerfil.tipo" *ngFor="let TipoPerfil of TipoPerfil">
+                                    {{TipoPerfil.tipo}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <br>
+
+                        <div class="botones" style="width: 240px;">
+                        <button mat-raised-button color="primary" type="submit">Editar datos de perfil</button>
+                        </div>
+
+<!--INPUT PARA IMAGEN-->
+
+                    </form>
 
                 </mat-card-content>
             </mat-card>
