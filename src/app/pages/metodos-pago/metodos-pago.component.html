@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col-4">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12" style="margin-bottom:15px">
                     <mat-card>
                         <!--TABLA DE TODAS LOS DOMICILIOS DADOS DE ALTA-->
                     </mat-card>
                 </div>
-                <br>
-                <div class="col-12">
-                    <mat-card>
+
+                <div class="col-12" >
+                    <mat-card >
                         <!--TABLA DE TODAS LAS TARJETAS DADAS DE ALTA-->
                     </mat-card>
                 </div>
@@ -67,7 +67,10 @@
 
                                 <mat-divider></mat-divider>
                                 <br>
-                                <button mat-raised-button color="primary" style="width:150px"> Agregar </button>
+                                
+                        <div class="botones">
+                                <button mat-raised-button color="primary" style="width:150px"> Agregar Domicilio </button>
+                        </div>
                             </form>
                         </mat-card-content>
                     </mat-card>
@@ -87,7 +90,32 @@
                         <mat-card-content>
 
                             <form [formGroup]="tarjetaForm" autocomplete="off">
-                                <br>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Numero de Tarjeta</mat-label>
+                                    <input matInput formControlName="Num_Tarjeta" type="number">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre que aparece en la tarjeta</mat-label>
+                                    <input matInput formControlName="Nom_Tarjeta" type="text">
+                                </mat-form-field> 
+
+                                <mat-form-field appearance="outline" style="width:150px">
+                                    <mat-label>Banco</mat-label>
+                                    <input matInput formControlName="Banco" type="text">
+                                </mat-form-field> 
+
+                                <mat-form-field appearance="outline" style="width:150px">
+                                    <mat-label>Caducidad</mat-label>
+                                    <input matInput formControlName="Caducidad" type="number">
+                                </mat-form-field> 
+                                <mat-divider></mat-divider>
+                                <br> 
+                                
+                        <div class="botones">
+                                <button mat-raised-button color="primary" style="width:150px"> Agregar Tarjeta </button>
+                        </div>
                             </form>
 
                         </mat-card-content>

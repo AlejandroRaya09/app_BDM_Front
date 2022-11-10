@@ -27,7 +27,7 @@ export class MetodosPagoComponent implements OnInit {
 
     this.tarjetaForm = this.fb.group({
       Num_Tarjeta: [,Validators.required],
-      Nomb_Tarjeta: ['', Validators.required],
+      Nom_Tarjeta: ['', Validators.required],
       Banco: ['', Validators.required],
       Caducidad: ['', Validators.required]
     })
