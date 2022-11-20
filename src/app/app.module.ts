@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     PagesModule,
     AuthModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    NgxToastNotifierModule.forRoot({
+      timeOut:5000
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

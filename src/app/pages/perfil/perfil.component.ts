@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Genero, Roll, TipoPerfil } from 'src/app/Models/GenericosModel';
 import { UsuarioModel } from '../../Models/UsuarioModel';
-
+import { NgxToastService } from 'ngx-toast-notifier';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -17,7 +17,8 @@ export class PerfilComponent implements OnInit {
   perfilForm: FormGroup;
   hide = true;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder,
+    private notificaciones: NgxToastService,) { 
 
     this.perfilForm = this.fb.group({
       primerNombre: ['', Validators.required],

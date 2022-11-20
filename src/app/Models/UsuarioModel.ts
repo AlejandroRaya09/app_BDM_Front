@@ -13,4 +13,6 @@ export interface UsuarioModel {
     TipoPerfil?: string; //('Publico','Privado')
  //   Imagen
     Estado?: string; //('Activo', 'Inactivo')
+
+    pOpcion?: string;
 }

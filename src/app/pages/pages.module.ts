@@ -17,6 +17,7 @@ import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
 import { VerProductoComponent } from './ver-producto/ver-producto.component';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -40,7 +41,7 @@ import { VerProductoComponent } from './ver-producto/ver-producto.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
   ]
 })
 export class PagesModule { }

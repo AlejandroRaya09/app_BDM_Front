@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { Genero, Roll } from 'src/app/Models/GenericosModel';
 import { TipoPerfil } from '../../Models/GenericosModel';
 import { UsuarioModel } from '../../Models/UsuarioModel';
+import { UsuarioService } from '../../Servicios/usuario.service';
+import { NgxToastService } from 'ngx-toast-notifier';
+
 
 @Component({
   selector: 'app-register',
@@ -20,7 +23,9 @@ export class RegisterComponent implements OnInit {
   hide = true;
 
   constructor(private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private usuarioService: UsuarioService,
+              private notificaciones: NgxToastService) {
 
     this.registerForm = this.fb.group({
       primerNombre: ['', Validators.required],
@@ -28,7 +33,7 @@ export class RegisterComponent implements OnInit {
       primerApellido: ['',Validators.required],
       segundoApellido:[''],
       Genero:['',Validators.required], //MASCULINO o FEMENINO
-      Email:['',Validators.required, Validators.email],
+      Email:['',[Validators.required, Validators.email]],
       Username:['', Validators.required],
       Password:['', Validators.required],
       Perfil:['',Validators.required], //PUBLICO o PRIVADO
@@ -40,7 +45,7 @@ export class RegisterComponent implements OnInit {
   }
 
   Registrarse(){
-    console.log(this.registerForm.value)
+    if(this.registerForm.valid){
     const Registro: UsuarioModel = {
       P_Nombre:this.registerForm.value.primerNombre,
       S_Nombre:this.registerForm.value.segundoNombre || '',
@@ -51,10 +56,23 @@ export class RegisterComponent implements OnInit {
       Username:this.registerForm.value.Username,
       Password:this.registerForm.value.Password,
       TipoPerfil:this.registerForm.value.Perfil,
-      Roll:this.registerForm.value.Roll,
+      Roll:this.registerForm.value.Roll
     }
-    //LLAMAR API PARA REGISTRAR 
+    this.usuarioService.agregarUsuarios(Registro).subscribe(data=>{
+      console.log(data)
+      if(data[0].msg){this.notificaciones.onDanger('Error', data[0].msg)}
+      else{
+        this.notificaciones.onSuccess('Correcto','Usuario creado satisfactoriamente')
+        this.router.navigateByUrl('/login')
+        this.notificaciones.onInfo('','Ingrese sus credenciales')
+      }
+      })
   }
+  else{
+    this.notificaciones.onWarning('Advertencia','LLENE TODOS LOS CAMPOS REQUERIDOS');
+    this.registerForm.markAllAsTouched();
+  }
+}
   regresar(){
     this.router.navigateByUrl('/login')
   }

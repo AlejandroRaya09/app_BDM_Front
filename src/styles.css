@@ -38,3 +38,9 @@ mat-card{
 {
   flex: 1 1 auto;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
