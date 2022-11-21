@@ -15,7 +15,7 @@ import { ListasComponent } from './listas/listas.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
 import { VerProductoComponent } from './ver-producto/ver-producto.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -42,6 +42,7 @@ import { VerProductoComponent } from './ver-producto/ver-producto.component';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    NgxPaginationModule,
   ]
 })
 export class PagesModule { }

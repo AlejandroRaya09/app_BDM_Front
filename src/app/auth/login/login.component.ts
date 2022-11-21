@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UsuarioModel } from '../../Models/UsuarioModel';
 import { UsuarioService } from '../../Servicios/usuario.service';
 import { NgxToastService } from 'ngx-toast-notifier';
+import { TipoPerfil } from '../../Models/GenericosModel';
 
 @Component({
   selector: 'app-login',
@@ -42,6 +43,8 @@ export class LoginComponent implements OnInit {
         this.notificaciones.onSuccess('Bienvenido', nombreCompleto);
         this.router.navigateByUrl('/dashboard')
         sessionStorage.setItem('id_user', data[0].Id_Usuario)
+        sessionStorage.setItem('username', data[0].Username)
+        sessionStorage.setItem('roll', data[0].Roll)
       }
     })
   }else{

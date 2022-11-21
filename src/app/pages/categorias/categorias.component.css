@@ -1,9 +1,13 @@
 
-mat-icon {
+.mat-icon-titulo {
     margin-right: 8px;
 }
 
-button{
+.button-normal{
     width: 150px;
     margin: 10px;
 }
+
+table {
+    width: 100%;
+  }

@@ -5,6 +5,7 @@ import { delay, filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+
 @UntilDestroy()
 @Component({
   selector: 'app-sidebar',
@@ -15,8 +16,13 @@ export class SidebarComponent implements OnInit {
   
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
+  user:string;
+  roll:string;
 
-  constructor(private observer: BreakpointObserver, private router: Router) {}
+  constructor(private observer: BreakpointObserver, private router: Router) {
+    this.user = sessionStorage.getItem('username')!;
+    this.roll = sessionStorage.getItem('roll')!;
+  }
 
   ngAfterViewInit() {
     this.observer
@@ -43,7 +49,7 @@ export class SidebarComponent implements OnInit {
         }
       });
   }
-  
+
   ngOnInit(): void {
   }
 
