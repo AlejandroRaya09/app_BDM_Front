@@ -3,8 +3,9 @@ export interface DomicilioModel {
     Calle?: string;
     Numero?: number;
     Colonia?: string;
-    Cp?: number;
+    CP?: number;
     Municipio?: string;
     Estado?: string;
     Id_Usuario?: number;
+    EstadoA_I?: string;
 }

@@ -1,4 +1,8 @@
-button{
+.button-max{
     width: 150px;
     margin: 10px;
 }
+
+table {
+    width: 100%;
+  }

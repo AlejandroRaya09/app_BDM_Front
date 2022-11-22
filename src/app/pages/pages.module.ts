@@ -15,8 +15,8 @@ import { ListasComponent } from './listas/listas.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
 import { VerProductoComponent } from './ver-producto/ver-producto.component';
+//MODULOS EXTERNOS
 import {NgxPaginationModule} from 'ngx-pagination';
-
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
   ],
   exports:[
     DashboardComponent,
-    PagesComponent
+    PagesComponent,
+    
   ],
   imports: [
     CommonModule,
