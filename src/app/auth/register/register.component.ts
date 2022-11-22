@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Genero, Roll } from 'src/app/Models/GenericosModel';
 import { TipoPerfil } from '../../Models/GenericosModel';
 import { UsuarioModel } from '../../Models/UsuarioModel';
-import { UsuarioService } from '../../Servicios/usuario.service';
+import { UsuarioService } from '../../Services/usuario.service';
 import { NgxToastService } from 'ngx-toast-notifier';
 
 

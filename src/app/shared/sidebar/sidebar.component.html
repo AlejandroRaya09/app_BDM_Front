@@ -29,7 +29,7 @@
             <span>Home</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="productos">
+        <button mat-button class="menu-button" routerLink="productos" *ngIf="roll=='Vendedor'">
             <mat-icon>format_list_bulleted_add</mat-icon>
             <span>Producto</span>
         </button>

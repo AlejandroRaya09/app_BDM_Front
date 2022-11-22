@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriaModel } from '../../Models/CategoriaModel';
 import { NgxToastService } from 'ngx-toast-notifier';
-import { CategoriaService } from '../../Servicios/categoria.service';
+import { CategoriaService } from '../../Services/categoria.service';
 
 @Component({
   selector: 'app-categorias',
@@ -69,9 +69,7 @@ export class CategoriasComponent implements OnInit {
     const Categoria: CategoriaModel = { Id_Categoria: id };
     this.categoriaService.listarCategoriaID(Categoria).subscribe((data) => {
       this.categoriaForm.get('Nombre')?.setValue(data[0].NombreCatego);
-      this.categoriaForm
-        .get('Descripcion')
-        ?.setValue(data[0].DescripcionCatego);
+      this.categoriaForm.get('Descripcion')?.setValue(data[0].DescripcionCatego);
       this.Agregar_Editar = 'Editar';
     });
   }

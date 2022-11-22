@@ -4,7 +4,7 @@
 
         <mat-card>
             <mat-card-title class="titulo">
-              <mat-icon>category</mat-icon>
+              <mat-icon class="mat-icon-titulo">category</mat-icon>
               Agregar Lista (wish list)</mat-card-title>
             <br>
             <mat-card-content>
@@ -28,8 +28,23 @@
                 </mat-form-field>
 
                 <div class="botones">
-                    <button mat-raised-button color="primary" 
-                    (click)="agregar_lista();"> <mat-icon>add_circle</mat-icon> Agregar </button>
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    (click)="agregar_lista()"
+                    class="button-normal"
+                    *ngIf="Agregar_Editar=='Agregar'">
+                    <mat-icon>add_circle</mat-icon> Agregar
+                  </button>
+    
+                  <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="guardar_Edicion()"
+                  class="button-normal"
+                  *ngIf="Agregar_Editar=='Editar'">
+                  <mat-icon>edit</mat-icon> Editar
+                </button>
                 </div>
             </form>
             </mat-card-content>
@@ -43,7 +58,31 @@
 
       <div class="col-md-8">
         <mat-card>
-<!--TABLA DONDE SE MUESTRAN TODOS LAS CATEGORIAS-->
+
+          <table class="table table-striped table-hover table-bordered table-responsive">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Folio</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lista of listAllLista | paginate: { itemsPerPage: 7, currentPage: paginaActual}">
+                <th scope="row">{{lista.Id_Lista}}</th>
+                <td> {{lista.NombreLista}}</td>
+                <td> {{lista.DescripcionLista}}</td>
+                <td> {{lista.tipoLista}}</td>
+                <td style="width:20%">
+                  <button mat-button color="primary" (click)="clickEditar(lista.Id_Lista)"><mat-icon>edit</mat-icon></button>|
+                  <button mat-button color="warn" (click)="eliminarLista(lista.Id_Lista)"><mat-icon>delete</mat-icon></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="paginaActual = $event"></pagination-controls>
         </mat-card>
       </div>
 

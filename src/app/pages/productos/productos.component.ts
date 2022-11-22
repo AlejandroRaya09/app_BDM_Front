@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TipoVenta } from 'src/app/Models/GenericosModel';
 import { ProductoModel } from 'src/app/Models/ProductoModel';
 
@@ -17,7 +17,8 @@ export class ProductosComponent implements OnInit {
 
   //FORMGROUP
   productoForm: FormGroup;
-
+  categorias:FormControl | undefined;
+  
   constructor(private fb: FormBuilder) {
     this.productoForm = this.fb.group({
       Nombre:['',Validators.required],
@@ -25,9 +26,9 @@ export class ProductosComponent implements OnInit {
       Tipo:['',Validators.required],
       Precio:['',Validators.required],
       Cantidad:['',Validators.required],
-      Video:['',Validators.required],
-      Imagen: new FormArray([]),
-      Categorias:['',Validators.required]
+      //Video:['',Validators.required],
+      //Imagen: new FormArray([]),
+      //Categorias:['',Validators.required]
     })
   }
 

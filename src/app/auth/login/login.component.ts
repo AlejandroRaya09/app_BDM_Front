@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioModel } from '../../Models/UsuarioModel';
-import { UsuarioService } from '../../Servicios/usuario.service';
+import { UsuarioService } from '../../Services/usuario.service';
 import { NgxToastService } from 'ngx-toast-notifier';
 import { TipoPerfil } from '../../Models/GenericosModel';
 
