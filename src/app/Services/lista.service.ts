@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 import { Observable } from 'rxjs';
-import { ListaModel } from '../Models/ListaModel';
+import { ListaModel, ListaDetalleModel } from '../Models/ListaModel';
 
 @Injectable({
   providedIn: 'root'
@@ -50,4 +50,18 @@ export class ListaService {
     return this.http.post<any>(direccion,lista);
   }
 
+  agregarDetalleLista(listaDetalle: ListaDetalleModel):Observable<any>{
+    let direccion = this.UrlApp + 'agregarDetalleLista';
+    return this.http.post<any>(direccion,listaDetalle);
+  }
+
+  ListaDetalle(lista: ListaModel):Observable<any>{
+    let direccion = this.UrlApp + 'ListaDetalle';
+    return this.http.post<any>(direccion,lista);
+  }
+
+  EliminarDetalle(listaDetalle: ListaDetalleModel):Observable<any>{
+    let direccion = this.UrlApp + 'EliminarDetalleLista';
+    return this.http.post<any>(direccion,listaDetalle);
+  }
 }

@@ -7,3 +7,12 @@ export interface ListaModel {
     Estado?: string;
   }
   
+
+  export interface ListaDetalleModel {
+    Id_Lista_Detalle?: number;
+    Id_Lista?: number;
+    Id_Producto?: number
+  }
+  
+
+  

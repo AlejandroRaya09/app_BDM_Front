@@ -31,11 +31,11 @@ import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vende
     MetodosPagoComponent,
     VerProductoComponent,
     AutorizarComponent,
-    ConsultasVendedorComponent
+    ConsultasVendedorComponent,
   ],
   exports:[
     DashboardComponent,
-    PagesComponent
+    PagesComponent,
   ],
   imports: [
     CommonModule,
@@ -46,7 +46,7 @@ import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vende
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ]
 })
 export class PagesModule { }

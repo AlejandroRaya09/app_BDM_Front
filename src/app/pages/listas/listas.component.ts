@@ -4,6 +4,7 @@ import { TipoLista } from 'src/app/Models/GenericosModel';
 import { ListaModel } from 'src/app/Models/ListaModel';
 import { ListaService } from '../../Services/lista.service';
 import { NgxToastService } from 'ngx-toast-notifier';
+import { ListaDetalleModel } from '../../Models/ListaModel';
 
 @Component({
   selector: 'app-listas',
@@ -22,6 +23,7 @@ export class ListasComponent implements OnInit {
   Id_Edit: number = 0; //GUARDAR ID A EDITAR
   listAllLista: any; //GUARDAR VALORES DE LAS LISTAS DE CATEGORIAS EN BD
   listaActiva: any;
+  listaDetalle:any;
   constructor(private fb: FormBuilder, 
     private listaService: ListaService,
     private notificaciones: NgxToastService) {
@@ -135,8 +137,31 @@ hacerActiva(id:number){
   this.listaService.hacerActiva(Lista).subscribe(data=>{
     if(data[0].id){
       this.notificaciones.onSuccess('Lista Activa','cambiada con exito')
+      sessionStorage.setItem('ListaActivaID',String(id))
       this.listaActual();
     }
   })
 }
+
+VerDetalles(id:number){
+this.Agregar_Editar='VER'
+const Lista: ListaModel = {Id_Lista:id};
+this.listaService.ListaDetalle(Lista).subscribe(data=>{
+  this.listaDetalle = data
+  this.notificaciones.onInfo('Productos','agregados a la WishList')
+})
+}
+
+borrarDETALLE(id:number){
+  const ListaDetalle: ListaDetalleModel = {Id_Lista_Detalle:id};
+  this.listaService.EliminarDetalle(ListaDetalle).subscribe(data=>{
+    if(data[0].id){
+      this.notificaciones.onSuccess('Prodducto','Eliminado')
+    }
+   this.listarListas();
+   this.listaActual();
+  })
+}
+
+
 }
