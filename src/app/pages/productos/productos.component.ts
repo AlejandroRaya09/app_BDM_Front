@@ -37,7 +37,7 @@ export class ProductosComponent implements OnInit {
       Nombre: ['', Validators.required],
       Descripcion: ['', Validators.required],
       Tipo: ['', Validators.required],
-      Precio: ['', Validators.required],
+      Precio: [''],
       Cantidad: ['', Validators.required],
       //Video:['',Validators.required],
       //Imagen: new FormArray([]),
@@ -56,7 +56,7 @@ export class ProductosComponent implements OnInit {
       NombreProducto: this.productoForm.value.Nombre,
       Descripcion: this.productoForm.value.Descripcion,
       Tipo: this.productoForm.value.Tipo,
-      Precio: this.productoForm.value.Precio,
+      Precio: this.productoForm.value.Precio || 0,
       Cantidad: this.productoForm.value.Cantidad,
       Id_Usuario: Number(sessionStorage.getItem('id_user'))
     };
@@ -105,7 +105,7 @@ export class ProductosComponent implements OnInit {
     this.productoService.listarProductoIDVendedor(Producto).subscribe((data) => {
       this.productoForm.get('Nombre')?.setValue(data[0].NombreProducto);
       this.productoForm.get('Descripcion')?.setValue(data[0].Descripcion);
-      this.productoForm.get('Precio')?.setValue(data[0].Precio);
+      this.productoForm.get('Precio')?.setValue(data[0].Precio) || 0;
     });
   }
 

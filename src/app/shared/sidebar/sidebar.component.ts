@@ -57,7 +57,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logout(){
-    this.notificaciones.onSuccess('LOGIN', 'Nos vemos pronto')
+    this.notificaciones.onSuccess('LOGOUT', 'Nos vemos pronto')
     sessionStorage.clear();
   }
 }

@@ -8,6 +8,9 @@ import { ListasComponent } from './listas/listas.component';
 import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { VerProductoComponent } from './ver-producto/ver-producto.component';
+import { AutorizarComponent } from './autorizar/autorizar.component';
+import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vendedor.component';
+
 
 const routes: Routes = [
     {
@@ -21,6 +24,8 @@ const routes: Routes = [
                 { path: 'listas', component: ListasComponent},
                 { path: 'metodos-pago', component: MetodosPagoComponent},
                 { path: 'perfil', component: PerfilComponent},
+                { path: 'autorizar', component: AutorizarComponent},
+                { path: 'consultas-vendedor', component: ConsultasVendedorComponent},
 
                 {path: 'ver-producto', component: VerProductoComponent}
             ]

@@ -17,6 +17,8 @@ import { MetodosPagoComponent } from './metodos-pago/metodos-pago.component';
 import { VerProductoComponent } from './ver-producto/ver-producto.component';
 //MODULOS EXTERNOS
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AutorizarComponent } from './autorizar/autorizar.component';
+import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vendedor.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ListasComponent,
     PerfilComponent,
     MetodosPagoComponent,
-    VerProductoComponent
+    VerProductoComponent,
+    AutorizarComponent,
+    ConsultasVendedorComponent
   ],
   exports:[
     DashboardComponent,
-    PagesComponent,
-    
+    PagesComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +46,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    NgxPaginationModule,
+    NgxPaginationModule
   ]
 })
 export class PagesModule { }

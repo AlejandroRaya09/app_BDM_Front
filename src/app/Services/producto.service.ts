@@ -49,4 +49,29 @@ export class ProductoService {
     return this.http.post<any>(direccion,producto);
   }
 
+  listarProductoADMIN(producto: ProductoModel):Observable<any>{
+    let direccion = this.UrlApp + 'listarProductoADMIN';
+    return this.http.post<any>(direccion,producto);
+  }
+
+  autorizarProd(producto: ProductoModel):Observable<any>{
+    let direccion = this.UrlApp + 'autorizarProd';
+    return this.http.post<any>(direccion,producto);
+  }
+
+  NoautorizarProd(producto: ProductoModel):Observable<any>{
+    let direccion = this.UrlApp + 'NoautorizarProd';
+    return this.http.post<any>(direccion,producto);
+  }
+
+  listarProductosFav(producto: ProductoModel):Observable<any>{
+    let direccion = this.UrlApp + 'listarProductosFav';
+    return this.http.post<any>(direccion,producto);
+  }
+
+  listarProductosTODOS(producto: ProductoModel):Observable<any>{
+    let direccion = this.UrlApp + 'listarProductosTODOS';
+    return this.http.post<any>(direccion,producto);
+  }
+
 }

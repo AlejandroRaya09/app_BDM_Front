@@ -36,6 +36,12 @@
             <span>Producto</span>
         </button>
 
+        
+        <button mat-button class="menu-button" routerLink="autorizar" *ngIf="roll=='Administracion'">
+            <mat-icon>new_releases</mat-icon>
+            <span>Autorizar</span>
+        </button>
+
         <button mat-button class="menu-button" routerLink="categorias" *ngIf="roll=='Vendedor'">
             <mat-icon>new_label</mat-icon>
             <span>Categoria</span>
@@ -46,7 +52,7 @@
             <span>Listas</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="">
+        <button mat-button class="menu-button" routerLink="consultas-vendedor"  *ngIf="roll=='Vendedor'">
             <mat-icon>area_chart</mat-icon>
             <span>Consultas</span>
         </button>

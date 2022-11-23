@@ -40,4 +40,14 @@ export class ListaService {
     return this.http.post<any>(direccion,lista);
   }
 
+  listarListaACTIVA(lista: ListaModel):Observable<any>{
+    let direccion = this.UrlApp + 'listarListaACTIVA';
+    return this.http.post<any>(direccion,lista);
+  }
+
+  hacerActiva(lista: ListaModel):Observable<any>{
+    let direccion = this.UrlApp + 'hacerActiva';
+    return this.http.post<any>(direccion,lista);
+  }
+
 }

@@ -58,7 +58,7 @@
 
       <div class="col-md-8">
         <mat-card>
-
+          <mat-card-subtitle>Lista Activa: {{listaActiva}}</mat-card-subtitle>
           <table class="table table-striped table-hover table-bordered table-responsive">
             <thead class="thead-dark">
               <tr>
@@ -75,9 +75,11 @@
                 <td> {{lista.NombreLista}}</td>
                 <td> {{lista.DescripcionLista}}</td>
                 <td> {{lista.tipoLista}}</td>
-                <td style="width:20%">
-                  <button mat-button color="primary" (click)="clickEditar(lista.Id_Lista)"><mat-icon>edit</mat-icon></button>|
-                  <button mat-button color="warn" (click)="eliminarLista(lista.Id_Lista)"><mat-icon>delete</mat-icon></button>
+                <td style="width:30%">
+                  <button mat-button color="primary" matTooltip="EDITAR"  (click)="clickEditar(lista.Id_Lista)"><mat-icon>edit</mat-icon></button>|
+                  <button mat-button color="warn" matTooltip="ELIMINAR"  (click)="eliminarLista(lista.Id_Lista)"><mat-icon>delete</mat-icon></button>|
+                  <button mat-button color="accent" matTooltip="DETALLES" ><mat-icon>search</mat-icon></button>|
+                  <button mat-button color="primary" matTooltip="HACER PRINCIPAL" (click)="hacerActiva(lista.Id_Lista)"><mat-icon>star</mat-icon></button>
                 </td>
               </tr>
             </tbody>

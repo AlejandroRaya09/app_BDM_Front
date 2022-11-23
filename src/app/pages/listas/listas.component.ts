@@ -21,7 +21,7 @@ export class ListasComponent implements OnInit {
   Agregar_Editar: string = 'Agregar'; //CONTROLADOR PARA SABER SI SE EL BOTON DE EDITAR O AGREGAR
   Id_Edit: number = 0; //GUARDAR ID A EDITAR
   listAllLista: any; //GUARDAR VALORES DE LAS LISTAS DE CATEGORIAS EN BD
-
+  listaActiva: any;
   constructor(private fb: FormBuilder, 
     private listaService: ListaService,
     private notificaciones: NgxToastService) {
@@ -34,6 +34,7 @@ export class ListasComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarListas();
+    this.listaActual()
   }
 
   agregar_lista() {
@@ -53,6 +54,7 @@ export class ListasComponent implements OnInit {
           this.listaForm.clearValidators();
           //VOLVER A LISTAR LAS CATEGORIAS
           this.listarListas();
+          this.listaActual();
         }
       });
     } else {
@@ -111,10 +113,30 @@ export class ListasComponent implements OnInit {
         this.Agregar_Editar = 'Agregar';
       }
       this.listarListas();
+      this.listaActual();
     });
   }else{
   this.notificaciones.onWarning('Advertencia','LLENE TODOS LOS CAMPOS REQUERIDOS');
   this.listaForm.markAllAsTouched();
   }
+}
+
+
+listaActual(){
+  const Lista: ListaModel = {Id_Usuario: Number(sessionStorage.getItem('id_user'))};
+  this.listaService.listarListaACTIVA(Lista).subscribe(data=>{
+    this.listaActiva = data[0].NombreLista
+    sessionStorage.setItem('ListaActiva',this.listaActiva)
+  })
+}
+
+hacerActiva(id:number){
+  const Lista: ListaModel = {Id_Usuario: Number(sessionStorage.getItem('id_user')), Id_Lista:id};
+  this.listaService.hacerActiva(Lista).subscribe(data=>{
+    if(data[0].id){
+      this.notificaciones.onSuccess('Lista Activa','cambiada con exito')
+      this.listaActual();
+    }
+  })
 }
 }

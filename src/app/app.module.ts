@@ -28,7 +28,7 @@ import { NgxToastNotifierModule } from 'ngx-toast-notifier';
     HttpClientModule,
     NgxToastNotifierModule.forRoot({
       timeOut:5000
-    }),
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

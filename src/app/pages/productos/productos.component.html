@@ -162,33 +162,38 @@
                   mat-button
                   color="primary"
                   matTooltip="Editar"
-                  (click)="EditarProd(prod.Id_Producto)">
+                  (click)="EditarProd(prod.Id_Producto)"
+                  *ngIf="prod.Autorizado !='No Autorizado'">
                   <mat-icon>edit</mat-icon>
                 </button>
                 <button
                   mat-button
                   color="warn"
-                  (click)="eliminarProducto(prod.Id_Producto)">
+                  (click)="eliminarProducto(prod.Id_Producto)" 
+                  *ngIf="prod.Autorizado !='No Autorizado' || prod.Autorizado == 'No Autorizado'">
                   <mat-icon>delete</mat-icon>
                 </button>
                 <button
                   mat-button
                   color="primary"
                   (click)="agregarCategoria(prod.Id_Producto)"
-                  matTooltip="Agregar Categoria">
+                  matTooltip="Agregar Categoria" 
+                  *ngIf="prod.Autorizado !='No Autorizado'">
                   <mat-icon>more</mat-icon>
                 </button>
                 <button
                   mat-button
                   color="primary"
-                  matTooltip="Agregar Elementos Visuales" >
+                  matTooltip="Agregar Elementos Visuales" 
+                  *ngIf="prod.Autorizado !='No Autorizado'">
                   <mat-icon>image</mat-icon>
                 </button>
                 <button
                   mat-button
                   color="primary"
                   (click)="agregarExistencias(prod.Id_Producto)"
-                  matTooltip="Aumentar Existencias">
+                  matTooltip="Aumentar Existencias"
+                  *ngIf="prod.Autorizado !='No Autorizado'">
                   <mat-icon>library_add</mat-icon>
                 </button>
               </td>
