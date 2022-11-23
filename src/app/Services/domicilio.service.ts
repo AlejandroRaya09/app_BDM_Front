@@ -36,7 +36,7 @@ export class DomicilioService {
   }
 
   listarDomiciliosID(domicilio: DomicilioModel):Observable<any>{
-    let direccion = this.UrlApp + 'listarDomiciliosID';
+    let direccion = this.UrlApp + 'listarDomicilioID';
     return this.http.post<any>(direccion,domicilio);
   }
 

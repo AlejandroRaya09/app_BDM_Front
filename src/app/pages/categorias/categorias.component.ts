@@ -75,35 +75,39 @@ export class CategoriasComponent implements OnInit {
   }
 
   guardarEdicion() {
-    const Categoria: CategoriaModel = {
-      Id_Categoria: this.Id_Edit,
-      NombreCatego: this.categoriaForm.value.Nombre,
-      DescripcionCatego: this.categoriaForm.value.Descripcion,
-    };
-    this.categoriaService.editarCategoria(Categoria).subscribe((data) => {
-      if (data[0].msg) {
-        this.notificaciones.onDanger('Error', data[0].msg);
-      } else {
-        this.notificaciones.onSuccess('La edicion se completo satisfactoriamente','' );
-        this.Id_Edit = 0;
-        this.categoriaForm.clearValidators;
-        this.categoriaForm.reset();
-        this.Agregar_Editar = 'Agregar';
-      }
-      this.listarCategorias();
-    });
+    if (this.categoriaForm.valid) {
+      const Categoria: CategoriaModel = {
+        Id_Categoria: this.Id_Edit,
+        NombreCatego: this.categoriaForm.value.Nombre,
+        DescripcionCatego: this.categoriaForm.value.Descripcion,
+      };
+      this.categoriaService.editarCategoria(Categoria).subscribe((data) => {
+        if (data[0].msg) {
+          this.notificaciones.onDanger('Error', data[0].msg);
+        } else {
+          this.notificaciones.onSuccess('La edicion se completo satisfactoriamente','');
+          this.Id_Edit = 0;
+          this.categoriaForm.clearValidators;
+          this.categoriaForm.reset();
+          this.Agregar_Editar = 'Agregar';
+        }
+        this.listarCategorias();
+      });
+    } else {
+      this.notificaciones.onWarning('Advertencia','LLENE TODOS LOS CAMPOS REQUERIDOS');
+      this.categoriaForm.markAllAsTouched();
+    }
   }
-
 
   eliminarCatego(id: number) {
     const Categoria: CategoriaModel = { Id_Categoria: id };
-    this.categoriaService.eliminarCategoria(Categoria).subscribe(data => {
+    this.categoriaService.eliminarCategoria(Categoria).subscribe((data) => {
       if (data[0].id) {
         this.notificaciones.onSuccess('Categoria Eliminada Correctamente', '');
         this.categoriaForm.clearValidators;
         this.categoriaForm.reset();
         this.listarCategorias();
       }
-    })
+    });
   }
 }

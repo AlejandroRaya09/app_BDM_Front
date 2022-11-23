@@ -19,7 +19,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let Dom of listaDomicilios | paginate: { itemsPerPage: 7, currentPage: paginaActualDom}">
+                              <tr *ngFor="let Dom of listaDomicilios | paginate: { itemsPerPage: 3, currentPage: paginaActualDom}">
                                 <th scope="row">{{Dom.Id_Domicilio}}</th>
                                 <td> {{Dom.Calle}}</td>
                                 <td> {{Dom.Numero}}</td>
@@ -29,8 +29,10 @@
                                 <td> {{Dom.Estado}}</td>
                                 <td> {{Dom.Colonia}}</td>
                                 <td style="width:10%">
-                                  <button mat-button color="primary" style="width:5px"><mat-icon>edit</mat-icon></button>|
-                                  <button mat-button color="warn" style="width:5px"><mat-icon>delete</mat-icon></button>
+                                  <button mat-button color="primary" style="width:5px" 
+                                  (click)="EditarDom(Dom.Id_Domicilio)"><mat-icon>edit</mat-icon></button>|
+                                  <button mat-button color="warn" style="width:5px"
+                                  (click)="eliminarDom(Dom.Id_Domicilio)"><mat-icon>delete</mat-icon></button>
                                 </td>
                               </tr>
                             </tbody>
@@ -40,10 +42,40 @@
                     </mat-card>
 
                 </div>
-
+<!--TABLA DE TARJETAS ACTIVAS-->
                 <div class="col-12" >
                     <mat-card >
-                        <!--TABLA DE TODAS LAS TARJETAS DADAS DE ALTA-->
+                      
+                        <table class="table table-striped table-hover table-bordered table-responsive">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Folio</th>
+                                <th scope="col">Numero</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Banco</th>
+                                <th scope="col">Caducidad</th>
+                                <th scope="col">Acciones</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let Tarjeta of listaTarjetas | paginate: { itemsPerPage: 3, currentPage: paginaActualTar}">
+                                <th scope="row">{{Tarjeta.Id_Tarjeta}}</th>
+                                <td> {{Tarjeta.Num_Tarjeta}}</td>
+                                <td> {{Tarjeta.Nom_Tarjeta}}</td>
+                                <td> {{Tarjeta.Banco}}</td>
+                                <td> {{Tarjeta.Caducidad}}</td>
+                                <td style="width:10%">
+                                  <button mat-button color="primary" style="width:5px" 
+                                  (click)="EditarTar(Tarjeta.Id_Tarjeta)"><mat-icon>edit</mat-icon></button>|
+                                  <button mat-button color="warn" style="width:5px"
+                                  (click)="eliminarTar(Tarjeta.Id_Tarjeta)"><mat-icon>delete</mat-icon></button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <pagination-controls (pageChange)="paginaActualTar = $event"></pagination-controls>
+
+
                     </mat-card>
                 </div>
             </div>
@@ -75,7 +107,7 @@
 
                                 <mat-form-field appearance="outline" style="width:30%; margin-right:5px ">
                                     <mat-label>Numero</mat-label>
-                                    <input matInput formControlName="Numero" type="number">
+                                    <input matInput formControlName="Numero" type="number" maxlength="16">
                                 </mat-form-field>
 
                                 <mat-form-field appearance="outline" style="width:50%; margin-right:5px;">
@@ -104,8 +136,22 @@
                                 <br>
                                 
                         <div class="botones">
-                                <button mat-raised-button color="primary" style="width:150px" (click)="agregarDomicilio()"
-                                class="button-max"> Agregar Domicilio </button>
+                                <button 
+                                mat-raised-button 
+                                color="primary" 
+                                style="width:150px" 
+                                (click)="agregarDomicilio()"
+                                class="button-max"
+                                *ngIf="Agregar_EditarDom=='Agregar'"> Agregar Domicilio </button>
+
+                                <button
+                                mat-raised-button
+                                color="primary"
+                                (click)="guardar_EdicionDom()"
+                                class="button-max"
+                                *ngIf="Agregar_EditarDom=='Editar'">
+                                <mat-icon>edit</mat-icon> Editar
+                              </button>
                         </div>
                             </form>
                         </mat-card-content>
@@ -150,8 +196,22 @@
                                 <br> 
                                 
                         <div class="botones">
-                                <button mat-raised-button color="primary" style="width:150px"
-                                class="button-max"> Agregar Tarjeta </button>
+                                <button
+                                mat-raised-button 
+                                color="primary"
+                                style="width:150px"
+                                (click)="agregarTarjeta()"
+                                class="button-max"
+                                *ngIf="Agregar_EditarTar=='Agregar'"> Agregar Tarjeta </button>
+
+                                <button
+                                mat-raised-button
+                                color="primary"
+                                (click)="guardar_EdicionTar()"
+                                class="button-max"
+                                *ngIf="Agregar_EditarTar=='Editar'">
+                                <mat-icon>edit</mat-icon> Editar
+                              </button>
                         </div>
                             </form>
 

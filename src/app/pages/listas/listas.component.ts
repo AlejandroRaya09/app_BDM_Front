@@ -92,6 +92,7 @@ export class ListasComponent implements OnInit {
   }
 
   guardar_Edicion(){
+    if(this.listaForm.valid){
     const Lista: ListaModel = {
       Id_Lista: this.Id_Edit,
       NombreLista: this.listaForm.value.Nombre,
@@ -111,5 +112,9 @@ export class ListasComponent implements OnInit {
       }
       this.listarListas();
     });
+  }else{
+  this.notificaciones.onWarning('Advertencia','LLENE TODOS LOS CAMPOS REQUERIDOS');
+  this.listaForm.markAllAsTouched();
   }
+}
 }
