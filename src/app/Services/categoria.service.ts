@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CategoriaModel } from '../Models/CategoriaModel';
+import { CategoriaDetalleModel, CategoriaModel } from '../Models/CategoriaModel';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -39,5 +39,13 @@ export class CategoriaService {
     return this.http.post<any>(direccion,categoria);
   }
 
+  agregarCategoriaDetalle(categoriaDetalle: CategoriaDetalleModel):Observable<any>{
+    let direccion = this.UrlApp + 'agregarCategoriaDetalle';
+    return this.http.post<any>(direccion,categoriaDetalle);
+  }
 
+  eliminarCategoriaDetalle(categoriaDetalle: CategoriaDetalleModel):Observable<any>{
+    let direccion = this.UrlApp + 'eliminarCategoriaDetalle';
+    return this.http.post<any>(direccion,categoriaDetalle);
+  }
 }

@@ -4,6 +4,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { delay, filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { NgxToastService } from 'ngx-toast-notifier';
 
 
 @UntilDestroy()
@@ -19,7 +20,9 @@ export class SidebarComponent implements OnInit {
   user:string;
   roll:string;
 
-  constructor(private observer: BreakpointObserver, private router: Router) {
+  constructor(private observer: BreakpointObserver, 
+    private router: Router,
+    private notificaciones: NgxToastService,) {
     this.user = sessionStorage.getItem('username')!;
     this.roll = sessionStorage.getItem('roll')!;
   }
@@ -53,4 +56,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout(){
+    this.notificaciones.onSuccess('LOGIN', 'Nos vemos pronto')
+    sessionStorage.clear();
+  }
 }

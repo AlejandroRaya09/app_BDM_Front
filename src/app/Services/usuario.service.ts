@@ -25,5 +25,13 @@ export class UsuarioService {
     return this.http.post<any>(direccion,usuario);
   }
 
+  ListarUserID(usuario: UsuarioModel):Observable<any>{
+    let direccion = this.UrlApp + 'listarUsuarioID';
+    return this.http.post<any>(direccion,usuario);
+  }
 
+  editarUsuario(usuario: UsuarioModel):Observable<any>{
+    let direccion = this.UrlApp + 'editarUsuario';
+    return this.http.post<any>(direccion,usuario);
+  }
 }

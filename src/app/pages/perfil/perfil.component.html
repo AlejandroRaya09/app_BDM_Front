@@ -58,12 +58,6 @@
                         </mat-form-field>
 
                         <mat-form-field appearance="outline">
-                            <mat-select placeholder="Roll" formControlName="Roll">
-                                <mat-option [value]="Roll.roll" *ngFor="let Roll of Roll">{{Roll.roll}}</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-
-                        <mat-form-field appearance="outline">
                             <mat-select placeholder="Tipo de Perfil" formControlName="Perfil">
                                 <mat-option [value]="TipoPerfil.tipo" *ngFor="let TipoPerfil of TipoPerfil">
                                     {{TipoPerfil.tipo}}</mat-option>

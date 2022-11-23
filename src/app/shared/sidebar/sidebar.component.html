@@ -65,8 +65,7 @@
         
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" matTooltip="Cerrar Sesion" >
-            <!--routerLink="/help"-->
+        <button mat-button class="menu-button" matTooltip="Cerrar Sesion" (click)="logout()" routerLink="/login">
             <mat-icon>logout</mat-icon>
             <span>Logout</span>
         </button>
