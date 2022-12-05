@@ -84,6 +84,15 @@
                           </button></td>
                 </table>
             </div>
+            <!--alife-file-to-base64-->
+            <div *ngIf="Agregar_Editar == 'SubirMultimedia'">
+              <input (change)="capturarFile($event)"
+               type="file" 
+               accept="image/png, image/jpeg"/>
+            </div>
+
+
+
 
             <div class="botones">
               <button
@@ -121,6 +130,15 @@
                 *ngIf="Agregar_Editar == 'Cantidad'" >
                 <mat-icon>add_circle</mat-icon> Añadir Ex
               </button>
+
+              <button
+              mat-raised-button
+              color="primary"
+              (click)="guardarMultimedia()"
+              class="button_w"
+              *ngIf="Agregar_Editar == 'SubirMultimedia'" >
+              <mat-icon>add_circle</mat-icon> Añadir
+            </button>
 
             </div>
           </form>
@@ -181,13 +199,16 @@
                   *ngIf="prod.Autorizado !='No Autorizado'">
                   <mat-icon>more</mat-icon>
                 </button>
+
                 <button
                   mat-button
                   color="primary"
                   matTooltip="Agregar Elementos Visuales" 
-                  *ngIf="prod.Autorizado !='No Autorizado'">
+                  *ngIf="prod.Autorizado !='No Autorizado'"
+                  (click)="agregarMultimedia(prod.Id_Producto)">
                   <mat-icon>image</mat-icon>
                 </button>
+
                 <button
                   mat-button
                   color="primary"

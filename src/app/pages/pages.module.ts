@@ -19,6 +19,7 @@ import { VerProductoComponent } from './ver-producto/ver-producto.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AutorizarComponent } from './autorizar/autorizar.component';
 import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vendedor.component';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vende
     FormsModule,
     NgbModule,
     NgxPaginationModule,
+    AlifeFileToBase64Module
   ]
 })
 export class PagesModule { }
