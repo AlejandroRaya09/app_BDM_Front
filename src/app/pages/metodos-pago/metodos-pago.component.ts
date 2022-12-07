@@ -38,7 +38,7 @@ export class MetodosPagoComponent implements OnInit {
       Calle: ['', Validators.required],
       Numero: [,Validators.required],
       Colonia: ['', Validators.required],
-      Cp: [, [Validators.required,Validators.maxLength(4)]],
+      Cp: [, Validators.required],
       Municipio: ['', Validators.required],
       Estado:['', Validators.required]
     })
@@ -47,7 +47,7 @@ export class MetodosPagoComponent implements OnInit {
       Num_Tarjeta: ['',[Validators.required, Validators.maxLength(16)]],
       Nom_Tarjeta: ['', Validators.required],
       Banco: ['', Validators.required],
-      Caducidad: ['', [Validators.required,Validators.maxLength(4)]]
+      Caducidad: ['',Validators.required]
     })
   }
 

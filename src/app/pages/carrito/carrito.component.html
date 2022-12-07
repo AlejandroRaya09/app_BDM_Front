@@ -1,0 +1,62 @@
+<button  mat-button color="warn" matTooltip="Salir" (click)="cerrar()"><mat-icon>close</mat-icon></button>
+
+<div class="contenedor text-center">
+    <div class="row">
+    <div class="col-12">
+  
+
+        <mat-card-title>Lista de Compras</mat-card-title>
+        <br>
+        <table class="table table-striped table-hover table-bordered table-responsive">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo Producto</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio de Unidad</th>
+              <th scope="col">Importe</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prod of carritoProductos">
+              <th scope="row">{{prod.Id_Producto}}</th>
+              <td> {{prod.NombreProducto}}</td>
+              <td> {{prod.Cantidad | number}}</td>
+              <td> {{prod.Precio | currency}}</td>
+              <td> {{prod.PrecioTotal | currency}}</td>
+              <td style="width:20%">
+                <button mat-button color="warn" matTooltip="Eliminar"><mat-icon>delete</mat-icon></button>|
+                <button mat-button color="primary" matTooltip="Visualizar"><mat-icon>search</mat-icon></button>|
+                <button mat-button color="accent" matTooltip="Agregar Unidades"><mat-icon>add</mat-icon></button>|
+                <button mat-button color="accent" matTooltip="Reducir Unidades"><mat-icon>remove</mat-icon></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+        
+        <table class="table table-striped table-hover table-bordered table-responsive">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Cantidad de Productos</th>
+              <th scope="col">Precio Total</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prod of carritoGeneral">
+              <th scope="row">{{prod.Cant_Produc}}</th>
+              <td> {{prod.PrecioTotal | currency}}</td>
+              <td style="width:20%">
+                <button mat-button color="primary" matTooltip="Comprar carrito"><mat-icon>payments</mat-icon></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+</div>

@@ -7,13 +7,14 @@
     eCommers-LMAD
     <mat-icon>shopping_cart</mat-icon>
     <span class="spacer"></span>
-    <mat-icon style="color:red;"
-    *ngIf="roll=='Comprador'">arrow_right_alt</mat-icon> 
+
+    <div *ngIf="roll=='Comprador'">
+    <mat-icon style="color:red;">arrow_right_alt</mat-icon> 
     <mat-icon 
     matTooltip="Carrito de Compras"
     style="color:red; margin-right: 25px; cursor: pointer;"
-    *ngIf="roll=='Comprador'">shopping_cart_checkout</mat-icon>
-    
+    (click)="abrirCarrito()">shopping_cart_checkout</mat-icon>
+    </div>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -26,7 +27,7 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="/dashboard">
+        <button mat-button class="menu-button" routerLink="/dashboard" *ngIf="roll=='Comprador'">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>

@@ -86,12 +86,12 @@
             </div>
             <!--alife-file-to-base64-->
             <div *ngIf="Agregar_Editar == 'SubirMultimedia'">
+
               <input (change)="capturarFile($event)"
                type="file" 
-               accept="image/png, image/jpeg"/>
+               accept="image/*, video/*"/>
+
             </div>
-
-
 
 
             <div class="botones">

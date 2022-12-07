@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxToastService } from 'ngx-toast-notifier';
-import { ListaDetalleModel } from 'src/app/Models/ListaModel';
+import { ListaDetalleModel, ListaModel } from 'src/app/Models/ListaModel';
 import { ProductoModel } from 'src/app/Models/ProductoModel';
 import { ProductoService } from 'src/app/Services/producto.service';
 import { ListaService } from '../../Services/lista.service';
+import { CarritoModel, CarritoDetalleModel } from '../../Models/CarritoModel';
+import { CarritoService } from '../../Services/carrito.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -19,11 +22,14 @@ export class DashboardComponent implements OnInit {
     private notificaciones: NgxToastService,
     private productoService: ProductoService,
     private listaService:ListaService,
+    private carritoService: CarritoService,
   ) { }
 
   ngOnInit(): void {
-   this.listarProductosMasVendidos()
-   this.listarTodosLosProductos()
+   this.listarProductosMasVendidos();
+   this.listarTodosLosProductos();
+   this.listaActual();
+   this.listarCarrito();
   }
 
 
@@ -41,10 +47,20 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  agregarCarrito(id:number){
-   
-
-  
+  agregarCarrito(prod:any){
+    console.log(prod)
+    const ProductoCarrito: CarritoDetalleModel = {
+      Id_Carrito: Number(sessionStorage.getItem('Id_Carrito')),
+      Id_Producto:prod.Id_Producto,
+      Cantidad: 1,
+      Precio: prod.Precio,
+      PrecioTotal: prod.Precio
+    }
+this.carritoService.agregarProductoCarrito(ProductoCarrito).subscribe(data=>{
+  if(data[0].msg){
+    this.notificaciones.onSuccess('Agregado Correctamente al carrito de compras','')
+  }
+})
   }
 
   agregarWishList(id:number){
@@ -56,6 +72,20 @@ this.listaService.agregarDetalleLista(DetalleLista).subscribe(data=>{
 })
   }
 
+  
+listaActual(){
+    const Lista: ListaModel = {Id_Usuario: Number(sessionStorage.getItem('id_user'))};
+    this.listaService.listarListaACTIVA(Lista).subscribe(data=>{
+      sessionStorage.setItem('ListaActivaID',String( data[0].Id_Lista))
+    })
+  }
+
+  listarCarrito(){
+    const Carrito: CarritoModel = {Id_Usuario: Number(sessionStorage.getItem('id_user'))};
+    this.carritoService.listarCarrito(Carrito).subscribe(data => {
+      sessionStorage.setItem('Id_Carrito',String( data[0].Id_Carrito))
+    })
+  }
 
 
 

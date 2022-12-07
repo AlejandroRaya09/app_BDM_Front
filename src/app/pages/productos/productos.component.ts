@@ -8,6 +8,8 @@ import { CategoriaDetalleModel } from '../../Models/CategoriaModel';
 import { ProductoService } from '../../Services/producto.service';
 import { ImagenModel } from 'src/app/Models/ImagenModel';
 import { ImagenService } from '../../Services/imagen.service';
+import { VideoModel } from 'src/app/Models/VideoModel';
+import { VideoService } from '../../Services/video.service';
 
 @Component({
   selector: 'app-productos',
@@ -34,7 +36,8 @@ export class ProductosComponent implements OnInit {
     private serviceCategoria: CategoriaService,
     private notificaciones: NgxToastService,
     private productoService: ProductoService,
-    private imagenService: ImagenService
+    private imagenService: ImagenService,
+    private videoService: VideoService
   ) {
     this.productoForm = this.fb.group({
       Nombre: ['', Validators.required],
@@ -42,7 +45,6 @@ export class ProductosComponent implements OnInit {
       Tipo: ['', Validators.required],
       Precio: [''],
       Cantidad: ['', Validators.required],
-      //Video:['',Validators.required],
       Categorias: ['', Validators.required],
     });
   }
@@ -234,14 +236,11 @@ export class ProductosComponent implements OnInit {
     });
   }
 
-  ImagenCapturada!: File;
-
+  FileCapturado!: File;
   capturarFile(event:any) {
-    this.ImagenCapturada = <File>event.target.files[0]
-
+    this.FileCapturado = <File>event.target.files[0]
   }
 
- 
 
 
   agregarMultimedia(id: number) {
@@ -250,16 +249,51 @@ export class ProductosComponent implements OnInit {
   }
 
   guardarMultimedia() {
-    const Imagen: ImagenModel = {
-      Id_Producto: this.Id_Edit,
-      Imagen: this.ImagenCapturada
-    };
+    console.log(this.FileCapturado.type)
+    let type = (this.FileCapturado.type.split('/'))
+      if(type[0] == 'image'){
+        const Id: ImagenModel = {
+          Id_Producto : this.Id_Edit
+        }
+        
+        this.imagenService.agregarImagen_ID(Id).subscribe(data => {
+          if(data[0].id){
+            this.imagenService.agregarImagen(this.FileCapturado).subscribe((data) => {
+              if(data[0].msg){
+                this.notificaciones.onSuccess('Imagen','agregada');
+                this.Id_Edit= 0;
+                this.Agregar_Editar = 'Agregar';
+              }
+            });
+          }
+          else{
+            this.notificaciones.onDanger('Error al subir imagen','')
+          }
+        })
+     }
 
-    this.imagenService.agregarImagen(this.ImagenCapturada).subscribe((data) => {
-      console.log(data)
-    });
+     if(type[0] == 'video'){
+      const Video: VideoModel = {
+        Id_Producto : this.Id_Edit
+      }
+      this.videoService.agregarVideo_ID(Video).subscribe(data => {
+        if(data[0].id){
+          this.videoService.agregarVideo(this.FileCapturado).subscribe((data) => {
+            if(data[0].msg){
+              this.notificaciones.onSuccess('Video','agregado correctamente');
+              this.Id_Edit= 0;
+              this.Agregar_Editar = 'Agregar';
+            }
+          });
+        }
+        else{
+          this.notificaciones.onDanger('Error al subir Video','')
+        }
+      })
+    }
   }
-  
+
+ 
 
 
 }

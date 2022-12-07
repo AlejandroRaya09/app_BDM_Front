@@ -28,7 +28,7 @@
             <td> {{prod.Cantidad | number}}</td>
             <td> {{prod.Username}}</td>
             <td style="width:20%">
-              <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod.Id_Producto)"><mat-icon>shopping_cart_checkout</mat-icon></button>|
+              <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod)"><mat-icon>shopping_cart_checkout</mat-icon></button>|
               <button mat-button color="primary" matTooltip="Visualizar"><mat-icon>search</mat-icon></button>|
               <button mat-button color="accent" matTooltip="Agregar a wishList" (click)="agregarWishList(prod.Id_Producto)"><mat-icon>checklist</mat-icon></button>
             </td>
@@ -72,7 +72,7 @@
               <td> {{prod.Cantidad | number}}</td>
               <td> {{prod.Username}}</td>
               <td style="width:20%">
-                <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod.Id_Producto)"><mat-icon>shopping_cart_checkout</mat-icon></button>|
+                <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod)"><mat-icon>shopping_cart_checkout</mat-icon></button>|
                 <button mat-button color="primary" matTooltip="Visualizar"><mat-icon>search</mat-icon></button>
                 <button mat-button color="accent" matTooltip="Agregar a wishList" (click)="agregarWishList(prod.Id_Producto)"><mat-icon>checklist</mat-icon></button>
               </td>

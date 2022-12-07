@@ -20,6 +20,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { AutorizarComponent } from './autorizar/autorizar.component';
 import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vendedor.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
     VerProductoComponent,
     AutorizarComponent,
     ConsultasVendedorComponent,
+    CarritoComponent,
   ],
   exports:[
     DashboardComponent,

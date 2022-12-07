@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MaterialModule } from '../DesignModule/material.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { PagesModule } from '../pages/pages.module';
 
 @NgModule({
   declarations: [
-    SidebarComponent, 
+    SidebarComponent
   ],
   exports: [
-    SidebarComponent, 
+    SidebarComponent
   ],
   imports: [
     CommonModule,

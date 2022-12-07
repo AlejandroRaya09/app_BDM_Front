@@ -129,6 +129,7 @@ listaActual(){
   this.listaService.listarListaACTIVA(Lista).subscribe(data=>{
     this.listaActiva = data[0].NombreLista
     sessionStorage.setItem('ListaActiva',this.listaActiva)
+    sessionStorage.setItem('ListaActivaID',String( data[0].Id_Lista))
   })
 }
 

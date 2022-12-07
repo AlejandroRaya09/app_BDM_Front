@@ -21,7 +21,12 @@ export class ImagenService {
     const formData = new FormData();
     formData.append('imagenPropia',Imagen,Imagen.name)
     return this.http.post<any>(direccion,formData);
-
-
   }
+
+  agregarImagen_ID(Id:ImagenModel):Observable<any>{
+    let direccion = this.UrlApp + 'agregarImagen_ID';
+    return this.http.post<any>(direccion,Id);
+  }
+
+
 }
