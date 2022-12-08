@@ -58,6 +58,21 @@
             <span>Consultas</span>
         </button>
 
+        <button mat-button class="menu-button" routerLink="lista-compras" *ngIf="roll=='Comprador'">
+            <mat-icon>area_chart</mat-icon>
+            <span>Consultas</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="cotizaciones" *ngIf="roll=='Vendedor'">
+            <mat-icon>compare_arrows</mat-icon>
+            <span>Cotizaciones</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="cotizacion-comprador" *ngIf="roll=='Comprador'">
+            <mat-icon>compare_arrows</mat-icon>
+            <span>Cotizaciones</span>
+        </button>
+
         <button mat-button class="menu-button" routerLink="metodos-pago" *ngIf="roll=='Comprador'">
             <mat-icon>add_card</mat-icon>
             <span>Metodos Pago</span>

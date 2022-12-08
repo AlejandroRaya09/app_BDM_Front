@@ -74,4 +74,9 @@ export class ProductoService {
     return this.http.post<any>(direccion,producto);
   }
 
+  listarBuscar(producto: ProductoModel):Observable<any>{
+    let direccion = this.UrlApp + 'listarBuscar';
+    return this.http.post<any>(direccion,producto);
+  }
+
 }

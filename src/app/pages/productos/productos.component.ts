@@ -212,9 +212,7 @@ export class ProductosComponent implements OnInit {
     this.notificaciones.onInfo('Info', 'Puede agregar existencias');
     this.Id_Edit = id;
     const Producto: ProductoModel = { Id_Producto: id };
-    this.productoService
-      .listarProductoIDVendedor(Producto)
-      .subscribe((data) => {
+    this.productoService.listarProductoIDVendedor(Producto).subscribe((data) => {
         this.productoForm.get('Cantidad')?.setValue(data[0].Cantidad);
       });
   }
@@ -293,7 +291,15 @@ export class ProductosComponent implements OnInit {
     }
   }
 
- 
+  tipoSelector:string='Cotizar';
+  tipoChange(Tipo:string){
+    if(Tipo =='Vender'){
+this.tipoSelector = 'Vender'
+    }
+    else{
+      this.tipoSelector = 'Cotizar'
+    }
+  }
 
 
 }

@@ -6,6 +6,9 @@ import { ProductoService } from 'src/app/Services/producto.service';
 import { ListaService } from '../../Services/lista.service';
 import { CarritoModel, CarritoDetalleModel } from '../../Models/CarritoModel';
 import { CarritoService } from '../../Services/carrito.service';
+import { FormArray, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { CotizacionesOfertaComponent } from '../cotizaciones-oferta/cotizaciones-oferta.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -18,12 +21,20 @@ export class DashboardComponent implements OnInit {
   productosMasVendidos:any;
   listPorductos:any;
   paginaActual=1;
+  busqueda!: FormGroup;
+
   constructor(
+    private fb: FormBuilder,
     private notificaciones: NgxToastService,
     private productoService: ProductoService,
     private listaService:ListaService,
     private carritoService: CarritoService,
-  ) { }
+    private dialog: MatDialog
+  ) { 
+    this.busqueda = this.fb.group({
+      Texto: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
    this.listarProductosMasVendidos();
@@ -87,6 +98,21 @@ listaActual(){
     })
   }
 
+  buscar(){
+    const texto: ProductoModel = {
+      NombreProducto: this.busqueda.value.Texto
+    } 
+    this.productoService.listarBuscar(texto).subscribe(data =>{
+      this.listPorductos = data
+    })
+    }
 
+    ofertar(prod:any){
+      this.dialog.open(CotizacionesOfertaComponent, {
+        width: '800px',
+        height: '500px',
+        data: prod
+      });
+    }
 
 }

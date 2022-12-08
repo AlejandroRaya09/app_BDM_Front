@@ -14,4 +14,6 @@ export interface CarritoDetalleModel {
     PrecioTotal?: number;
     Id_Carrito?: number;
     Estado?:string;
+
+    Id_Usuario?: number;
 }

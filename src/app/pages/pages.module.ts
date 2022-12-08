@@ -21,6 +21,12 @@ import { AutorizarComponent } from './autorizar/autorizar.component';
 import { ConsultasVendedorComponent } from './consultas-vendedor/consultas-vendedor.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { CarritoComponent } from './carrito/carrito.component';
+import { NgxToastNotifierModule } from 'ngx-toast-notifier';
+import { ResumenCompraComponent } from './resumen-compra/resumen-compra.component';
+import { ComprasComponent } from './compras/compras.component';
+import { CotizacionesComponent } from './cotizaciones/cotizaciones.component';
+import { CotizacionesOfertaComponent } from './cotizaciones-oferta/cotizaciones-oferta.component';
+import { CotizacionesCompradorComponent } from './cotizaciones-comprador/cotizaciones-comprador.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,11 @@ import { CarritoComponent } from './carrito/carrito.component';
     AutorizarComponent,
     ConsultasVendedorComponent,
     CarritoComponent,
+    ResumenCompraComponent,
+    ComprasComponent,
+    CotizacionesComponent,
+    CotizacionesOfertaComponent,
+    CotizacionesCompradorComponent,
   ],
   exports:[
     DashboardComponent,
@@ -50,7 +61,10 @@ import { CarritoComponent } from './carrito/carrito.component';
     FormsModule,
     NgbModule,
     NgxPaginationModule,
-    AlifeFileToBase64Module
+    AlifeFileToBase64Module,
+    NgxToastNotifierModule.forRoot({
+      timeOut:5000
+    })
   ]
 })
 export class PagesModule { }

@@ -28,9 +28,10 @@
             <td> {{prod.Cantidad | number}}</td>
             <td> {{prod.Username}}</td>
             <td style="width:20%">
-              <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod)"><mat-icon>shopping_cart_checkout</mat-icon></button>|
+              <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod)" *ngIf="prod.Tipo == 'Vender'"><mat-icon>shopping_cart_checkout</mat-icon></button>|
+              <button mat-button color="warn" matTooltip="Ofertar" (click)="ofertar(prod)" *ngIf="prod.Tipo == 'Cotizar'"><mat-icon>start</mat-icon></button>
               <button mat-button color="primary" matTooltip="Visualizar"><mat-icon>search</mat-icon></button>|
-              <button mat-button color="accent" matTooltip="Agregar a wishList" (click)="agregarWishList(prod.Id_Producto)"><mat-icon>checklist</mat-icon></button>
+              <button mat-button color="accent" matTooltip="Agregar a wishList" (click)="agregarWishList(prod.Id_Producto)" *ngIf="prod.Tipo == 'Vender'"><mat-icon>checklist</mat-icon></button>
             </td>
           </tr>
         </tbody>
@@ -42,11 +43,14 @@
 
     <div class="col-12" style="margin-top:10px">
       <mat-card>
+
         <mat-card-subtitle>
+          <form [formGroup]="busqueda">
           <mat-form-field appearance="outline">
           <mat-label>Buscar Producto</mat-label>
-          <input matInput>
+          <input matInput (change)="buscar()" formControlName="Texto">
       </mat-form-field>
+    </form>
 
     </mat-card-subtitle>
         <table class="table table-striped table-hover table-bordered table-responsive">
@@ -72,9 +76,10 @@
               <td> {{prod.Cantidad | number}}</td>
               <td> {{prod.Username}}</td>
               <td style="width:20%">
-                <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod)"><mat-icon>shopping_cart_checkout</mat-icon></button>|
-                <button mat-button color="primary" matTooltip="Visualizar"><mat-icon>search</mat-icon></button>
-                <button mat-button color="accent" matTooltip="Agregar a wishList" (click)="agregarWishList(prod.Id_Producto)"><mat-icon>checklist</mat-icon></button>
+                <button mat-button color="primary" matTooltip="Agregar a Carrito" (click)="agregarCarrito(prod)" *ngIf="prod.Tipo == 'Vender'"><mat-icon>shopping_cart_checkout</mat-icon></button>|
+                <button mat-button color="warn" matTooltip="Ofertar" (click)="ofertar(prod)" *ngIf="prod.Tipo == 'Cotizar'"><mat-icon>start</mat-icon></button>
+                <button mat-button color="primary" matTooltip="Visualizar" ><mat-icon>search</mat-icon></button>
+                <button mat-button color="accent" matTooltip="Agregar a wishList" (click)="agregarWishList(prod.Id_Producto)" *ngIf="prod.Tipo == 'Vender'"><mat-icon>checklist</mat-icon></button>
               </td>
             </tr>
           </tbody>

@@ -66,8 +66,8 @@ export class SidebarComponent implements OnInit {
 
   abrirCarrito(){
     this.dialog.open(CarritoComponent, {
-      width: '800px',
-      height: '600px'
+      width: '900px',
+      height: '700px'
     });
   }
 }

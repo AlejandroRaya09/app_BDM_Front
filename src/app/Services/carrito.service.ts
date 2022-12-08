@@ -25,9 +25,25 @@ export class CarritoService {
     return this.http.post<any>(direccion,producto);
   }
 
-
   listarCarritoCompleto(Id: CarritoModel):Observable<any>{
     let direccion = this.UrlApp + 'ListarCarritoCompleto';
     return this.http.post<any>(direccion,Id);
+  }
+
+  EliminarProducto ( producto: CarritoDetalleModel):Observable<any>{
+    let direccion = this.UrlApp + 'EliminarProducto';
+    return this.http.post<any>(direccion,producto);
+  }
+
+  
+  quitarExitenciaProducto ( producto: CarritoDetalleModel):Observable<any>{
+    let direccion = this.UrlApp + 'quitarExitenciaProducto';
+    return this.http.post<any>(direccion,producto);
+  }
+
+  
+  agregarExitenciaProducto ( producto: CarritoDetalleModel):Observable<any>{
+    let direccion = this.UrlApp + 'agregarExitenciaProducto';
+    return this.http.post<any>(direccion,producto);
   }
 }

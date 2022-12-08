@@ -28,7 +28,7 @@
             <mat-form-field
               appearance="outline"
               style="width: 45%; margin-right: 5px"
-              *ngIf="Agregar_Editar == 'Agregar' || Agregar_Editar == 'Editar'" >
+              *ngIf="Agregar_Editar == 'Editar' || tipoSelector == 'Vender'" >
               <mat-label>Precio</mat-label>
               <input matInput formControlName="Precio" type="number" />
             </mat-form-field>
@@ -47,7 +47,7 @@
               *ngIf="Agregar_Editar == 'Agregar'" >
               <mat-label>Tipo</mat-label>
               <mat-select formControlName="Tipo">
-                <mat-option [value]="Tipo.tipo" *ngFor="let Tipo of Tipo">
+                <mat-option [value]="Tipo.tipo" *ngFor="let Tipo of Tipo" (onSelectionChange)="tipoChange(Tipo.tipo)">
                     {{Tipo.tipo}}
                 </mat-option>
               </mat-select>
